@@ -186,7 +186,7 @@ th {
 body {
   position: relative;
   font-family: Lato, "Microsoft Jhenghei", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.8;
   color: #555;
   background: #fff;
@@ -214,47 +214,47 @@ h6 {
   font-family: Cambria, Georgia, "Microsoft Jhenghei", "Hiragino Sans GB", "Microsoft YaHei", "Times New Roman", serif;
 }
 h1 {
-  font-size: 20px;
+  font-size: 24px;
 }
 @media (max-width: 767px) {
   h1 {
-    font-size: 16px;
+    font-size: 20px;
   }
 }
 h2 {
-  font-size: 18px;
+  font-size: 22px;
 }
 @media (max-width: 767px) {
   h2 {
-    font-size: 14px;
+    font-size: 18px;
   }
 }
 h3 {
-  font-size: 16px;
+  font-size: 20px;
 }
 @media (max-width: 767px) {
   h3 {
-    font-size: 12px;
+    font-size: 16px;
   }
 }
 h4 {
-  font-size: 14px;
+  font-size: 18px;
 }
 @media (max-width: 767px) {
   h4 {
-    font-size: 10px;
+    font-size: 14px;
   }
 }
 h5 {
-  font-size: 12px;
+  font-size: 16px;
 }
 @media (max-width: 767px) {
   h5 {
-    font-size: 10px;
+    font-size: 12px;
   }
 }
 h6 {
-  font-size: 12px;
+  font-size: 14px;
 }
 @media (max-width: 767px) {
   h6 {
@@ -1071,7 +1071,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #cdc605;
+  background: #21ff21;
 }
 .sidebar-nav {
   margin: 0;
