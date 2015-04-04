@@ -20,9 +20,19 @@
 
 
 
-	<meta name="keywords" content="erlang,mac," />
 
-  <title> MacBook Pro erlang 环境安装 // Jiank·Blog </title>
+    <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+    <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.0" />
+
+
+
+
+  <title> 转山 // Jiank·Blog </title>
 </head>
 
 <body>
@@ -105,7 +115,7 @@
           
           
             
-              MacBook Pro erlang 环境安装
+              转山
             
           
         </h1>
@@ -114,7 +124,7 @@
       <div class="post-meta">
         <span class="post-time">
           
-            发表于 2015-03-24
+            发表于 2015-03-27
           
         </span>
 
@@ -123,7 +133,7 @@
             <span class="post-category">
               &nbsp; | &nbsp; 分类于
               
-                <a href="/categories/技术/">技术</a>
+                <a href="/categories/电影/">电影</a>
 
                 
                 
@@ -137,8 +147,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/03/24/2015-03-24-macbook-prohuan-jing-an-zhuang-zong-jie/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/24/2015-03-24-macbook-prohuan-jing-an-zhuang-zong-jie/"></span>
+            <a href="/2015/03/27/zhuan-shan/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/27/zhuan-shan/"></span>
             </a>
           </span>
           
@@ -153,101 +163,7 @@
         
 
         
-          <p>犹豫了很久，还是咬牙把<code>macbook pro</code>给买了。勒紧裤腰带啃干脆面的日子就在眼前，anyway，2015的第一个目标提前实现了。<br>苹果的笔记本无论是工艺设计还是性能都还是很让人眼热的，对于一个程序猿来说，不失为一件装逼利器。<br>pro到手之后这两天，一直在把玩。布环境，搞插件，装应用。这个过程中也遇到了不少坎，掉了许多次坑。把这些经验教训都扔在这篇文字里，以作备忘。<br><a id="more"></a></p>
-<p></p><h4>1、修改命令提示符</h4><br>使用vi编辑/etc/profile文件，或者~/.bash_profile文件，在最后加上：<code>export PS1=&#39;[/u@/h /W]/$ &#39;</code> 即可，其中/u显示当前用户账号，/h显示当前主机名，/W显示当前路径，/$显示’$’符号<p></p>
-<p></p><h4>2、Vim和iTerm配色</h4><br>摒弃了系统自带的Terminal，装了更为方便的iTerm，但是默认的颜色都不太喜欢，所以更改了默认的配色方案。对于配色方案，萝卜青菜各有所爱，因人而异。我选择的是Solarized。<br><img src="/images/tech/solarized.png" alt="Solarized图案简介"><br>Solarized官网地址：<a href="http://ethanschoonover.com/solarized" target="_blank" rel="external">http://ethanschoonover.com/solarized</a><br>下载完成后，将用于vim的配色文件<code>solarized.vim</code>放在 <code>~/.vim/colors/</code> 目录下，如果没有该目录，自行创建。<br>然后设置 <code>~/.vimrc</code>:<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">syntax</span> enable</span><br><span class="line"><span class="keyword">syntax</span> <span class="keyword">on</span> #语法高亮</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">nu</span> #显示行号</span><br><span class="line"><span class="keyword">set</span> t_Co=<span class="number">256</span></span><br><span class="line"><span class="keyword">set</span> background=dark</span><br><span class="line"><span class="keyword">colorscheme</span> solarized</span><br></pre></td></tr></table></figure><p></p>
-<p>最后打开 <code>~/.barshrc</code> 并添加 <code>&quot;export TERM=xterm-256color&quot;</code>, 这样vim的配色方案就设置完成了。<br>和vim的设置相比，iTerm的配色设置就简单多了。   </p>
-<ol>
-<li><code>$ git clone git@github.com:seebi/dircolors-solarized.git solarized</code> 克隆到本地。   </li>
-<li>然后找到 <code>iterm2-colors-solarized</code> 目录, 点击是使用目录下的 <code>Solarized Dark.itermcolors</code> 和 <code>Solarized Light.itermcolors</code> 导入配色方案。   </li>
-<li>打开iTerm左上找到 <code>iTerm</code> &gt; <code>Preference</code> &gt; <code>Prefiles</code> &gt; <code>colors</code> 界面上找到选择配色方案的下拉框，选择刚才导入的深色或者浅色的Solarized方案就成功了。   </li>
-</ol>
-<p></p><h4>3、安裝 Git 的 Bash autocompletion 和其他设置</h4><p></p>
-<blockquote>
-<p>brew install bash-completion<br>cp /usr/local/etc/bash_completion.d/git-completion.bash ~/.git-bash-completion.sh   </p>
-</blockquote>
-<p>编辑 <code>~/.bash_profile</code> 加入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="operator">-f</span> ~/.git-completion.bash ]; <span class="keyword">then</span></span><br><span class="line">	. ~/.git-completion.bash</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></p>
-<p>给git指令的输出结果添加颜色，例如:<code>git status</code>, <code>git branch</code>…   </p>
-<blockquote>
-<p>$git config —global color.ui true       </p>
-</blockquote>
-<p>设定git指令的简写形式   </p>
-<blockquote>
-<p>$git config —global alias.co checkout<br>$git config —global alias.ci commit<br>$git config —global alias.st status<br>$git config —global alias.br branch<br>$git config —global alias.pl pull<br>$git config —global alias.ph push   </p>
-</blockquote>
-<p>基于ssh使用git   </p>
-<blockquote>
-<ol>
-<li>生成git使用的公私钥匙<code>github</code>和<code>github.pub</code><br>$ssh-keygen   </li>
-<li>在~/.ssh/config里加上刚才生成的github(私钥)<br>Host github.com<br>&lt;注意缩进&gt;IdentityFile ~/.ssh/github   </li>
-<li>登录github个人账户里，找到<code>ssh key</code>管理 &gt; <code>Add……</code> 把github.pub文件里的内容填入。</li>
-<li>完成。</li>
-</ol>
-</blockquote>
-<p><br></p>
-<p>对于应用软件的安装和管理，向来是一件很头疼的事情。但好在linux上有<code>yum</code>，<code>apt</code>类似的软件包管理工具，让绝大部分的软件都能很优雅的进行安装和卸载，处理好软件的依赖关系。<br>与之相对应的，Mac OS X上有<code>homebrew</code>。<br>brew的详细介绍和简单用法不说，网上相关的文章一搜一片。   </p>
-<p></p><h4>4、如何用brew安装我需要的R16B03这个版本？</h4><br>在安装erlang环境的过程中，<code>brew search erlang</code>的时候列出的版本有<code>erlang-r13</code>,<code>erlang-r14</code>,<code>erlang-r15</code>,<code>erlang-r16</code>,而在erlang官网上R16打头的版本就有5个。<br>解决办法:    <p></p>
-<blockquote>
-<ol>
-<li>查看 brew 支持哪些版本的 erlang<br>brew versions erlang<br>17.0     git checkout 30de282 /usr/local/Library/Formula/erlang.rb<br>R16B03-1 git checkout 0c2d4c8 /usr/local/Library/Formula/erlang.rb<br>R16B03   git checkout a1ade14 /usr/local/Library/Formula/erlang.rb<br>R15B03-1 git checkout 8759d6c /usr/local/Library/Formula/erlang.rb<br>R16B03在里边，那么我们就能用brew安装了。   </li>
-<li>进入 brew 所在的git仓库<br>cd `brew —prefix`   </li>
-<li>切换到R16B03的安装环境里<br>git checkout a1ade14 /usr/local/Library/Formula/erlang.rb   </li>
-<li>安装R16B03版本的erlang<br>brew install erlang</li>
-</ol>
-</blockquote>
-<p>安装好了我想要的erlang版本，但是这个erlang环境里没有我需要用到的crypto这个库，后来才知道是因为Erlang的crypto模块与最新的openssl动态链接库不兼容。  </p>
-<p></p><h4>5、如何解决openssl的兼容问题？</h4><p></p>
-<blockquote>
-<ol>
-<li>下载openssl源码<br><code>$ wget hhttp://www.openssl.org/source/openssl-1.0.2a.tar.gz</code><br><code>$ tar zxvf openssl-1.0.2a.tar.gz</code>   </li>
-<li>进入源码目录，注意如果不是最新下的目录，需要先执行 <code>make clean</code> 确保能够重新编译成功</li>
-<li>为了不和系统的openssl冲突，我们安装的时候需要指定安装的路径<br><code>$ ./configure --prefix=/usr/local/opt</code></li>
-<li>config之后，会生成Makefile，打开Makefile找到gcc，在CFLAG参数列表里加上-fPIC<br>CC= gcc<br>CFLAG= -fPIC -DOPENSSL_THREADS -D_REENTRANT -DDSO_DLFCN -DHAVE_DLFCN_H -Wa,—noexecstack -m64 -DL_ENDIAN -DTERMIO -O3 -Wall -DOPENSSL_IA32_SSE2 -DOPENSSL_BN_ASM_MONT -DOPENSSL_BN_ASM_MONT5 -DOPENSSL_BN_ASM_GF2m -DSHA1_ASM -DSHA256_ASM -DSHA512_ASM -DMD5_ASM -DAES_ASM -DVPAES_ASM -DBSAES_ASM -DWHIRLPOOL_ASM -DGHASH_ASM</li>
-<li>编译并安装<br><code>$ make &amp;&amp; make install</code>   </li>
-</ol>
-</blockquote>
-<p>到这里之后，如果是用源码安装erlang的话，就可以进到erlang的源码目录下，先<code>make clean</code>一下，然后<code>./configure --with-ssl=/usr/local/opt/ssl</code> 配置，最后 <code>make &amp;&amp; make install</code> 编译安装就大功告成了。</p>
-<p>但是为了让brew继续管理我的erlang，我还是决定用brew安装，先卸载之前没有包含crypto的erlang(<code>brew unistall erlang</code>)。   </p>
-<p></p><h4>6、使用brew安装erlang时，如何加入指定的参数，例如: —with-ssl=/usr/local/opt/ssl ?</h4><p></p>
-<blockquote>
-<ol>
-<li>执行 <code>$brew edit erlang</code> 打开brew安装erlang时的命令源码   </li>
-<li>在install方法里找到`<br> args = %W[<pre><code>-<span class="ruby">-disable-debug
-</span>-<span class="ruby">-disable-silent-rules
-</span>-<span class="ruby">-prefix=<span class="comment">#{prefix}</span>
-</span>-<span class="ruby">-enable-kernel-poll
-</span>-<span class="ruby">-enable-threads
-</span>-<span class="ruby">-enable-shared-zlib
-</span>-<span class="ruby">-enable-smp-support</span>
-</code></pre> ]<code>这个参数，然后把</code>—with-ssl=/usr/local/opt/ssl` 加到从参数里   </li>
-<li>按照之前的办法安装erlang R16B03，问题就解决了。</li>
-</ol>
-</blockquote>
-<pre><code class="erl"><span class="variable">Erlang</span> <span class="variable">R16B03</span> (erts-<span class="number">5.10</span>.<span class="number">4</span>) [source] [<span class="number">64</span>-bit] [smp:<span class="number">4</span>:<span class="number">4</span>] [async-threads:<span class="number">10</span>] [hipe] [kernel-poll:<span class="literal">false</span>]  
-
-<span class="variable">Eshell</span> <span class="variable">V5</span>.<span class="number">10.4</span>  (abort with ^<span class="variable">G</span>)   
-<span class="number">1</span>&gt; crypto:start().   
-ok   
-<span class="number">2</span>&gt;
-</code></pre>
-<p>Erlang环境安装就到此完事了。   </p>
-<p><br><br>工作上除了用到Erlang，还有lua和Python，系统没有带lua，但是lua的安装很简单，不多说。系统带了Python，版本很多，默认的是2.7.6，不需要我再费心思。<br>装pip（Python包管理工具）没什么大问题，先装<code>setuptools</code>然后下载pip源码，进到目录执行<code>python setup.py install</code>基本上就完事了。然后其余的大部分包都可以通过<code>pip install XX</code>来安装和卸载，方便省事。   </p>
-<p></p><h4>7、通过pip安装m2crypto，报错 m2crypto unable to find ‘openssl/opensslv.h’?</h4><br>报错日志很明白，找不到openssl的inlude和lib目录，需要的头文件找不到。   <p></p>
-<blockquote>
-<ol>
-<li>找到系统里的opensslv.h文件<br>find / -name opensslv.h   </li>
-<li>把找到的结果都看了一遍，发现<code>/Applications/Xcode.app/Contents/Developer/Platforms   
-/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/include/openssl</code>这个目录最像是所需要的，通过软连接把这个目录放到pip能找到的地址下。<br>ln -s /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.<br>10.sdk/usr/include/openssl /usr/include/    </li>
-<li>重新安装<code>pip install m2crypto</code>，发现还有报错找不到 <code>AvailabilityMacros.h</code>，看了一下报错的文件 <code>openssl/stack.h</code> ：62行有这么一句<code>#include &lt;AvailabilityMacros.h&gt;</code>，导入同级目录下的<code>AvailabilityMacros.h</code>头文件，但是这个文件不存在。   </li>
-<li><code>/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/   
-MacOSX10.10.sdk/usr/include/AvailabilityMacros.h</code>，通过find搜出来发现它是这样的。按照上边的方法把它也软连接到<code>/usr/include/openssl/</code>目录下。</li>
-<li>再次pip安装，成功。</li>
-</ol>
-</blockquote>
-<p><br><br>到这里，工作需要用到的环境基本上也就安装完成了。后来在clone转移我基于octopress搭建的个人时又遇到了不少问题，这一节另记，就不再这里写了。<br>总得说来，弄这些环境的过程中有时候卡在一个地方真的是想死的心都有，装一遍不成继续装第二遍，两遍三遍不成，担心自己本就不大的硬盘里残留的垃圾越来越多，真是着急。但好在在各种折腾之后，不管是网上找到解决办法，还是自己去看源码找到了解决的方案，整个过程对我来说都是进步的课程。   </p>
-<p>知道问题的原因，找到问题的解决办法。知其然，亦知其所以然。这也是我作为一个技术人员的理念，程序在于折腾。<br>上图几张，晒晒我的MacBook Pro。</p>
-<p><img src="/images/tech/mac/mbp.jpg" alt="Macbook Pro"></p>
-<p>完。</p>
+          <p>注: 这篇文字去年国庆节后放在微信朋友圈，现在个人博客稳定运行，遂将以前写的一点东西都归到“朝花夕拾”一栏迁移到上边来，充充门面，让博客看起来丰满一点。<br>抛开整理照片和游记的浩大工程，偷得闲暇半日，心血来潮，把几年前看过的骑行拉萨的电影《转山》温习了一遍。<br>电影里的藏医（此行中我们在然乌燃木齐藏餐厅见到了演员本人）说过一句话，“有些病呢，用药可以治得了。但是，有一种病，药是治不了”。这种病怎么才能治？唯有走在路上！<br><a id="more"></a><br>电影看罢，感动却久久散不去。大学刚刚毕业的大男孩，继承了逝去的哥哥的遗志，从未骑过车的他带着单车远赴丽江，开始了滇藏的骑行之旅。由最初的千里独行到后来结识了连续三年骑行滇藏只为梅里十三峰而始终不得见，最后因为掉落悬崖而退出的晓川大哥，最后仍然只身一人的主角在经历了摔车，食物中毒，严寒，单车几近报销等等的磨难之后终抵拉萨，完成了哥哥的遗愿，而他，蜕变为真正的男人。<br>影片中那些熟悉的道路，风景给了我一种故地重游的感觉。七十二道拐，我在这里脱光了衣服；然乌湖，我们在这里没有遇上好天，失落地冒雨奔向鲁朗；米拉山，我们在这里欲撒藏经笺而被制止……这些记忆随着电影镜头的闪现适时的出现在我脑海，原来我的骑旅中还有这么多当初来不及咀嚼的美好。<br>骑车去到过拉萨，才能真正明白电影中的人物所表现的那些坚持，执着和不屈。苦逼地爬过几十公里的上坡，才真正能体会到下坡的幸福。很巧合的是川藏线上的米拉山不仅是最后一座山，也是海拔最高的山，所以这最后的考验也是最来得很凶猛。电影最后，主角放下所有包袱，空车犁上米拉山口的时候，回身远望来时走过的路，这个已经蜕变了的男人流下了珍贵的眼泪，把朝圣者赠给他的藏经笺往天上一撒，所有的苦涩都随风而去，剩给他的只有值得珍藏的回忆。影片中有这样一个镜头，阳光透过云层直射到拉萨城上，给拉萨造就了一种金光熠熠的感觉，群山环绕，拉萨当得圣城之名。朝圣者用他们的跪拜礼朝圣，而主角，而我们又何尝不是在完成自己的朝圣。<br>垭口上飘动的经幡，酥油灯中跃动的火焰，天空中飞翔的雄鹰，草地上徘徊的牦牛……这些专属于西藏的独特元素曾经一次次的让我放空了自己，放下了所有的所谓的面子，所谓的自尊，让我遇到了最真实的自己，让我懂得了何为自由，让我感受到了内心的平静和生命的律动。   </p>
 
         
       </div>
@@ -256,28 +172,18 @@ MacOSX10.10.sdk/usr/include/AvailabilityMacros.h</code>，通过find搜出来发
     
       <div class="post-footer">
         
-          <div class="post-tags">
-            
-              <a href="/tags/erlang/">
-                #erlang
-              </a>
-            
-              <a href="/tags/mac/">
-                #mac
-              </a>
-            
-          </div>
-        
 
         
           <div class="post-nav">
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2015/03/27/2015-03-27-zhuan-shan/">转山</a>
+                <a href="/2015/03/27/da-guo-nian-de/">大过年的</a>
               
             </div>
 
             <div class="post-nav-next post-nav-item">
+              
+                <a href="/2015/03/24/macbook-prohuan-jing-an-zhuang-zong-jie/">MacBook Pro erlang 环境安装</a>
               
             </div>
           </div>
@@ -294,8 +200,8 @@ MacOSX10.10.sdk/usr/include/AvailabilityMacros.h</code>，通过find搜出来发
   
     <div class="comments" id="comments">
       
-        <div class="ds-thread" data-thread-key="2015/03/24/2015-03-24-macbook-prohuan-jing-an-zhuang-zong-jie/"
-             data-title="MacBook Pro erlang 环境安装" data-url="http://jiankg.github.io/2015/03/24/2015-03-24-macbook-prohuan-jing-an-zhuang-zong-jie/">
+        <div class="ds-thread" data-thread-key="2015/03/27/zhuan-shan/"
+             data-title="转山" data-url="http://jiankg.github.io/2015/03/27/zhuan-shan/">
         </div>
 
       
@@ -368,7 +274,7 @@ MacOSX10.10.sdk/usr/include/AvailabilityMacros.h</code>，通过find搜出来发
         <div class="post-toc">
           
           
-            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">1、修改命令提示符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">2、Vim和iTerm配色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">3、安裝 Git 的 Bash autocompletion 和其他设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">4、如何用brew安装我需要的R16B03这个版本？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">5、如何解决openssl的兼容问题？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">6、使用brew安装erlang时，如何加入指定的参数，例如: —with-ssl=/usr/local/opt/ssl ?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">7、通过pip安装m2crypto，报错 m2crypto unable to find ‘openssl/opensslv.h’?</span></a></li></ol></div>
+            <p class="post-toc-empty">此文章未包含目录</p>
           
         </div>
         <div class="post-toc-indicator-bottom post-toc-indicator"></div>
