@@ -154,19 +154,19 @@
 
         
           <p>犹豫了很久，还是咬牙把<code>macbook pro</code>给买了。勒紧裤腰带啃干脆面的日子就在眼前，anyway，2015的第一个目标提前实现了。<br>苹果的笔记本无论是工艺设计还是性能都还是很让人眼热的，对于一个程序猿来说，不失为一件装逼利器。<br>pro到手之后这两天，一直在把玩。布环境，搞插件，装应用。这个过程中也遇到了不少坎，掉了许多次坑。把这些经验教训都扔在这篇文字里，以作备忘。<br><a id="more"></a></p>
-<p></p><h4>1、修改命令提示符</h4><br>使用vi编辑/etc/profile文件，或者~/.bash_profile文件，在最后加上：<code>export PS1=&#39;[/u@/h /W]/$ &#39;</code> 即可，其中/u显示当前用户账号，/h显示当前主机名，/W显示当前路径，/$显示’$’符号<p></p>
-<p></p><h4>2、Vim和iTerm配色</h4><br>摒弃了系统自带的Terminal，装了更为方便的iTerm，但是默认的颜色都不太喜欢，所以更改了默认的配色方案。对于配色方案，萝卜青菜各有所爱，因人而异。我选择的是Solarized。<br><img src="/images/tech/solarized.png" alt="Solarized图案简介"><br>Solarized官网地址：<a href="http://ethanschoonover.com/solarized" target="_blank" rel="external">http://ethanschoonover.com/solarized</a><br>下载完成后，将用于vim的配色文件<code>solarized.vim</code>放在 <code>~/.vim/colors/</code> 目录下，如果没有该目录，自行创建。<br>然后设置 <code>~/.vimrc</code>:<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">syntax</span> enable</span><br><span class="line"><span class="keyword">syntax</span> <span class="keyword">on</span> #语法高亮</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">nu</span> #显示行号</span><br><span class="line"><span class="keyword">set</span> t_Co=<span class="number">256</span></span><br><span class="line"><span class="keyword">set</span> background=dark</span><br><span class="line"><span class="keyword">colorscheme</span> solarized</span><br></pre></td></tr></table></figure><p></p>
+<p></p><h5>修改命令提示符</h5><br>使用vi编辑/etc/profile文件，或者~/.bash_profile文件，在最后加上：<code>export PS1=&#39;[/u@/h /W]/$ &#39;</code> 即可，其中/u显示当前用户账号，/h显示当前主机名，/W显示当前路径，/$显示’$’符号<p></p>
+<p></p><h5>Vim和iTerm配色</h5><br>摒弃了系统自带的Terminal，装了更为方便的iTerm，但是默认的颜色都不太喜欢，所以更改了默认的配色方案。对于配色方案，萝卜青菜各有所爱，因人而异。我选择的是Solarized。<br><img src="/images/tech/solarized.png" alt="Solarized图案简介"><br>Solarized官网地址：<a href="http://ethanschoonover.com/solarized" target="_blank" rel="external">http://ethanschoonover.com/solarized</a><br>下载完成后，将用于vim的配色文件<code>solarized.vim</code>放在 <code>~/.vim/colors/</code> 目录下，如果没有该目录，自行创建。<br>然后设置 <code>~/.vimrc</code>:<br><figure class="highlight bash"><figcaption><span>.vimrc</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">syntax <span class="built_in">enable</span></span><br><span class="line">syntax on <span class="comment">#语法高亮</span></span><br><span class="line"><span class="built_in">set</span> nu <span class="comment">#显示行号</span></span><br><span class="line"><span class="built_in">set</span> t_Co=<span class="number">256</span></span><br><span class="line"><span class="built_in">set</span> background=dark</span><br><span class="line">colorscheme solarized</span><br></pre></td></tr></table></figure><p></p>
 <p>最后打开 <code>~/.barshrc</code> 并添加 <code>&quot;export TERM=xterm-256color&quot;</code>, 这样vim的配色方案就设置完成了。<br>和vim的设置相比，iTerm的配色设置就简单多了。   </p>
 <ol>
 <li><code>$ git clone git@github.com:seebi/dircolors-solarized.git solarized</code> 克隆到本地。   </li>
 <li>然后找到 <code>iterm2-colors-solarized</code> 目录, 点击是使用目录下的 <code>Solarized Dark.itermcolors</code> 和 <code>Solarized Light.itermcolors</code> 导入配色方案。   </li>
 <li>打开iTerm左上找到 <code>iTerm</code> &gt; <code>Preference</code> &gt; <code>Prefiles</code> &gt; <code>colors</code> 界面上找到选择配色方案的下拉框，选择刚才导入的深色或者浅色的Solarized方案就成功了。   </li>
 </ol>
-<p></p><h4>3、安裝 Git 的 Bash autocompletion 和其他设置</h4><p></p>
+<p></p><h5>安裝 Git 的 Bash autocompletion 和其他设置</h5><p></p>
 <blockquote>
 <p>brew install bash-completion<br>cp /usr/local/etc/bash_completion.d/git-completion.bash ~/.git-bash-completion.sh   </p>
 </blockquote>
-<p>编辑 <code>~/.bash_profile</code> 加入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="operator">-f</span> ~/.git-completion.bash ]; <span class="keyword">then</span></span><br><span class="line">	. ~/.git-completion.bash</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></p>
+<p>编辑 <code>~/.bash_profile</code> 加入<br><figure class="highlight bash"><figcaption><span>.bash_profile</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="operator">-f</span> ~/.git-completion.bash ]; <span class="keyword">then</span></span><br><span class="line">	. ~/.git-completion.bash</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></p>
 <p>给git指令的输出结果添加颜色，例如:<code>git status</code>, <code>git branch</code>…   </p>
 <blockquote>
 <p>$git config —global color.ui true       </p>
@@ -184,9 +184,8 @@
 <li>完成。</li>
 </ol>
 </blockquote>
-<p><br></p>
 <p>对于应用软件的安装和管理，向来是一件很头疼的事情。但好在linux上有<code>yum</code>，<code>apt</code>类似的软件包管理工具，让绝大部分的软件都能很优雅的进行安装和卸载，处理好软件的依赖关系。<br>与之相对应的，Mac OS X上有<code>homebrew</code>。<br>brew的详细介绍和简单用法不说，网上相关的文章一搜一片。   </p>
-<p></p><h4>4、如何用brew安装我需要的R16B03这个版本？</h4><br>在安装erlang环境的过程中，<code>brew search erlang</code>的时候列出的版本有<code>erlang-r13</code>,<code>erlang-r14</code>,<code>erlang-r15</code>,<code>erlang-r16</code>,而在erlang官网上R16打头的版本就有5个。<br>解决办法:    <p></p>
+<p></p><h5>如何用brew安装我需要的R16B03这个版本？</h5><br>在安装erlang环境的过程中，<code>brew search erlang</code>的时候列出的版本有<code>erlang-r13</code>,<code>erlang-r14</code>,<code>erlang-r15</code>,<code>erlang-r16</code>,而在erlang官网上R16打头的版本就有5个。<br>解决办法:    <p></p>
 <blockquote>
 <ol>
 <li>查看 brew 支持哪些版本的 erlang<br>brew versions erlang<br>17.0     git checkout 30de282 /usr/local/Library/Formula/erlang.rb<br>R16B03-1 git checkout 0c2d4c8 /usr/local/Library/Formula/erlang.rb<br>R16B03   git checkout a1ade14 /usr/local/Library/Formula/erlang.rb<br>R15B03-1 git checkout 8759d6c /usr/local/Library/Formula/erlang.rb<br>R16B03在里边，那么我们就能用brew安装了。   </li>
@@ -196,7 +195,7 @@
 </ol>
 </blockquote>
 <p>安装好了我想要的erlang版本，但是这个erlang环境里没有我需要用到的crypto这个库，后来才知道是因为Erlang的crypto模块与最新的openssl动态链接库不兼容。  </p>
-<p></p><h4>5、如何解决openssl的兼容问题？</h4><p></p>
+<p></p><h5>如何解决openssl的兼容问题？</h5><p></p>
 <blockquote>
 <ol>
 <li>下载openssl源码<br><code>$ wget hhttp://www.openssl.org/source/openssl-1.0.2a.tar.gz</code><br><code>$ tar zxvf openssl-1.0.2a.tar.gz</code>   </li>
@@ -208,7 +207,7 @@
 </blockquote>
 <p>到这里之后，如果是用源码安装erlang的话，就可以进到erlang的源码目录下，先<code>make clean</code>一下，然后<code>./configure --with-ssl=/usr/local/opt/ssl</code> 配置，最后 <code>make &amp;&amp; make install</code> 编译安装就大功告成了。</p>
 <p>但是为了让brew继续管理我的erlang，我还是决定用brew安装，先卸载之前没有包含crypto的erlang(<code>brew unistall erlang</code>)。   </p>
-<p></p><h4>6、使用brew安装erlang时，如何加入指定的参数，例如: —with-ssl=/usr/local/opt/ssl ?</h4><p></p>
+<p></p><h5>使用brew安装erlang时，如何加入指定的参数，例如: —with-ssl=/usr/local/opt/ssl ?</h5><p></p>
 <blockquote>
 <ol>
 <li>执行 <code>$brew edit erlang</code> 打开brew安装erlang时的命令源码   </li>
@@ -231,8 +230,8 @@ ok
 <span class="number">2</span>&gt;
 </code></pre>
 <p>Erlang环境安装就到此完事了。   </p>
-<p><br><br>工作上除了用到Erlang，还有lua和Python，系统没有带lua，但是lua的安装很简单，不多说。系统带了Python，版本很多，默认的是2.7.6，不需要我再费心思。<br>装pip（Python包管理工具）没什么大问题，先装<code>setuptools</code>然后下载pip源码，进到目录执行<code>python setup.py install</code>基本上就完事了。然后其余的大部分包都可以通过<code>pip install XX</code>来安装和卸载，方便省事。   </p>
-<p></p><h4>7、通过pip安装m2crypto，报错 m2crypto unable to find ‘openssl/opensslv.h’?</h4><br>报错日志很明白，找不到openssl的inlude和lib目录，需要的头文件找不到。   <p></p>
+<p>工作上除了用到Erlang，还有lua和Python，系统没有带lua，但是lua的安装很简单，不多说。系统带了Python，版本很多，默认的是2.7.6，不需要我再费心思。<br>装pip（Python包管理工具）没什么大问题，先装<code>setuptools</code>然后下载pip源码，进到目录执行<code>python setup.py install</code>基本上就完事了。然后其余的大部分包都可以通过<code>pip install XX</code>来安装和卸载，方便省事。   </p>
+<p></p><h5>通过pip安装m2crypto，报错 m2crypto unable to find ‘openssl/opensslv.h’?</h5><br>报错日志很明白，找不到openssl的inlude和lib目录，需要的头文件找不到。   <p></p>
 <blockquote>
 <ol>
 <li>找到系统里的opensslv.h文件<br>find / -name opensslv.h   </li>
@@ -244,7 +243,7 @@ MacOSX10.10.sdk/usr/include/AvailabilityMacros.h</code>，通过find搜出来发
 <li>再次pip安装，成功。</li>
 </ol>
 </blockquote>
-<p><br><br>到这里，工作需要用到的环境基本上也就安装完成了。后来在clone转移我基于octopress搭建的个人时又遇到了不少问题，这一节另记，就不再这里写了。<br>总得说来，弄这些环境的过程中有时候卡在一个地方真的是想死的心都有，装一遍不成继续装第二遍，两遍三遍不成，担心自己本就不大的硬盘里残留的垃圾越来越多，真是着急。但好在在各种折腾之后，不管是网上找到解决办法，还是自己去看源码找到了解决的方案，整个过程对我来说都是进步的课程。   </p>
+<p>到这里，工作需要用到的环境基本上也就安装完成了。后来在clone转移我基于octopress搭建的个人时又遇到了不少问题，这一节另记，就不再这里写了。<br>总得说来，弄这些环境的过程中有时候卡在一个地方真的是想死的心都有，装一遍不成继续装第二遍，两遍三遍不成，担心自己本就不大的硬盘里残留的垃圾越来越多，真是着急。但好在在各种折腾之后，不管是网上找到解决办法，还是自己去看源码找到了解决的方案，整个过程对我来说都是进步的课程。   </p>
 <p>知道问题的原因，找到问题的解决办法。知其然，亦知其所以然。这也是我作为一个技术人员的理念，程序在于折腾。<br>上图几张，晒晒我的MacBook Pro。</p>
 <p><img src="/images/tech/mac/mbp.jpg" alt="Macbook Pro"></p>
 <p>完。</p>
@@ -370,7 +369,7 @@ MacOSX10.10.sdk/usr/include/AvailabilityMacros.h</code>，通过find搜出来发
         <div class="post-toc">
           
           
-            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">1、修改命令提示符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">2、Vim和iTerm配色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">3、安裝 Git 的 Bash autocompletion 和其他设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">4、如何用brew安装我需要的R16B03这个版本？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">5、如何解决openssl的兼容问题？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">6、使用brew安装erlang时，如何加入指定的参数，例如: —with-ssl=/usr/local/opt/ssl ?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">7、通过pip安装m2crypto，报错 m2crypto unable to find ‘openssl/opensslv.h’?</span></a></li></ol></div>
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">修改命令提示符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Vim和iTerm配色</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">安裝 Git 的 Bash autocompletion 和其他设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">如何用brew安装我需要的R16B03这个版本？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">如何解决openssl的兼容问题？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">使用brew安装erlang时，如何加入指定的参数，例如: —with-ssl=/usr/local/opt/ssl ?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">通过pip安装m2crypto，报错 m2crypto unable to find ‘openssl/opensslv.h’?</span></a></li></ol></div>
           
         </div>
         <div class="post-toc-indicator-bottom post-toc-indicator"></div>
