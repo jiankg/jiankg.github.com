@@ -169,7 +169,7 @@
 
         
           
-            <p>问题是这样出现的: 代码上线之后，以为develop分支上暂时不会有什么修改，但碰上了策划要求活动配置需要按服务器差异各自开放，所以没有拉新的分支，直接在develop上做活动的修改。<br>当活动内容做了80%，提交了A,B,C 3次commit的时候，线上的代码出现了bug需要紧急修复。当时能想到的解决方法就是把develop通过 <code>git reset --hard COMMIT</code> 回退到A commit之前的版本，然后拉一个新分支，切换过去之后再切换到最新的C commit上。但是 <code>git co -b new_branch</code> 之后，git log打出来的日志里没有A,B,C的log了。活动的3次版本提交都丢了，此次的活动修改涉及到的文件比较多，如果找不回来那么就都得重写一遍。<br>经同事提醒，网上查了一下之后，知道 <code>git reflog</code> + <code>git cherry-pick</code> 命令配合使用可以把之前误删除的commit找回。<br>
+            <p><code>git</code> 用得多了，难免不会使用到类似 <code>git reset --hard COMMIT</code> 这样回退到某次提交的命令，这个做法有个坏处就是回退到某个版本之后，中间的版本就丢了。<br>这时候 <code>git reflog</code> + <code>git cherry-pick</code> 命令配合使用可以把之前误删除的commit给找回了。<br>
             <div class="post-more-link text-center">
               <a class="btn" href="/2015/04/07/git-reflog找回误删除的commit/#more">
                 阅读全文 &raquo;
