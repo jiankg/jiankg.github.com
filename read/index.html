@@ -121,8 +121,9 @@
 <p><br></p>
 <ul>
 <li>技术类<ul>
-<li>正在读: </li>
-<li>已读: </li>
+<li>正在读: <div id="bookrack2" class="bookrack"><br><a href="#" title="erlang并发编程实战"><img src="/images/read/reading/erlang_bfbchshzh.jpg" alt="erlang并发编程实战"></a><br></div></li>
+<li>已读: <div id="bookrack3" class="bookrack"><br><a href="#" title="erlang程序设计"><img src="/images/read/yidu/erlang_cxshj.jpg" alt="erlang程序设计"></a><br></div>
+</li>
 </ul>
 </li>
 </ul>
@@ -147,6 +148,14 @@
 } 
 #bookrack1 { 
   width: 550px; 
+  margin: auto; 
+} 
+#bookrack2 { 
+  width: 250px; 
+  margin: auto; 
+} 
+#bookrack3 { 
+  width: 250px; 
   margin: auto; 
 } 
 .bookrack a { 
@@ -184,6 +193,7 @@ e.innerHTML=a.getAttribute("title");a.appendChild(e);a.onmouseover=function(){b.
   new Bookrack(document.getElementById('bookrack'), 160, 220);
   new Bookrack(document.getElementById('bookrack1'), 180, 240);
 </script>
+
   
 
 
