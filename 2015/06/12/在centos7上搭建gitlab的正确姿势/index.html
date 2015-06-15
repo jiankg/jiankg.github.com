@@ -1,0 +1,1113 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-next">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.0"/>
+
+
+    <meta name="description" content="Yes， we code." />
+
+
+
+	<meta name="keywords" content="git," />
+
+  <title> 在centos7上搭建gitlab的正确姿势 // Jiank·Blog </title>
+</head>
+
+<body>
+  <div class="container one-column
+               page-not-home 
+              page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner clearfix">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">Jiank·Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+
+  <ul id="menu" class="menu">
+    
+      
+      <li class="menu-item menu-item-home">
+        <a href="/">
+          <i class="menu-item-icon icon-home"></i> <br />
+          首页
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-categories">
+        <a href="/categories">
+          <i class="menu-item-icon icon-categories"></i> <br />
+          分类
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-archives">
+        <a href="/archives">
+          <i class="menu-item-icon icon-archives"></i> <br />
+          归档
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-read">
+        <a href="/read">
+          <i class="menu-item-icon icon-read"></i> <br />
+          读书
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-about">
+        <a href="/about">
+          <i class="menu-item-icon icon-about"></i> <br />
+          关于
+        </a>
+      </li>
+    
+  </ul>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+            
+          
+
+          <div id="posts" class="posts-expand">
+            
+  
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              在centos7上搭建gitlab的正确姿势
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2015-06-12
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/技术/">技术</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/06/12/在centos7上搭建gitlab的正确姿势/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/12/在centos7上搭建gitlab的正确姿势/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+          <div class="post-gallery">
+            
+              <a class="post-gallery-img fancybox" href="/images/git/gitlab1.jpg"
+                 rel="gallery_ciaxbzubk000frxs693a1i4kq">
+                <img src="/images/git/gitlab1.jpg" />
+              </a>
+            
+              <a class="post-gallery-img fancybox" href="/images/git/gitlab2.png"
+                 rel="gallery_ciaxbzubk000frxs693a1i4kq">
+                <img src="/images/git/gitlab2.png" />
+              </a>
+            
+              <a class="post-gallery-img fancybox" href="/images/git/gitlab3.jpg"
+                 rel="gallery_ciaxbzubk000frxs693a1i4kq">
+                <img src="/images/git/gitlab3.jpg" />
+              </a>
+            
+              <a class="post-gallery-img fancybox" href="/images/git/gitlab4.jpg"
+                 rel="gallery_ciaxbzubk000frxs693a1i4kq">
+                <img src="/images/git/gitlab4.jpg" />
+              </a>
+            
+          </div>
+        
+
+        
+          <p>公司初创, 新买了一台Dell r320服务器。略屌, 但屌的是它居然是机架式的而不是之前常见到的塔式, 所以大家都觉得很叼的样子。但其实性能一般, 4核8G内存1T硬盘的配置并不算什么高端水准。但是不管怎么样, 既然服务器买了总不能当做摆设吧。<br>按最初设计, 服务器至少两台。一台用来做测试服务器, 另一台用来部署各种工具, 比如svn, gitlab, 游戏后台管理和自动化发布工具等等。但是预算有限, 服务器只有一个那就先用着吧, 实在不行以后再想辙。<br>工具最先要用到也就是策划和美术们要管理资源和文档的svn, 另外就是技术要用的gitlab。svn很简单没什么可说的, 其实技术也完全可以使用svn, 但是为了更好地装逼, 虽然暂时只有一前一后两个技术, 但我们还是任性地选择了gitlab这个部署起来非常蛋疼但biger够高的代码版本管理工具。</p>
+<p>言归正传, 介绍一下centos7安装gitlab的正确姿势。<br><a id="more"></a></p>
+<p></p><h5 id="1">系统工具安装设置</h5><p></p>
+<p></p><h6 id="11">论官方文档的重要性</h6><br><a href="https://github.com/gitlabhq/gitlabhq/blob/master/doc/install/installation.md" target="_blank" rel="external">https://github.com/gitlabhq/gitlabhq/blob/master/doc/install/installation.md</a> 开始装之前, 建议各位老少爷们千万不要吝惜这点时间, 动手点进去, 花个十分钟把整个流程熟悉一下。这真是血的教训, 我最开始的时候网上搜到一篇安装教程就开始动手装, 结果中间出了N多问题。所以, 劝诫各位不管是装什么工具, 花点时间看看官方的文档, 百利而无一害。<p></p>
+<p></p><h6 id="12">说一下服务器上的环境和需要用到的依赖</h6><p></p>
+<pre><code><span class="attribute">OS</span>: <span class="string">centos 7</span>
+<span class="attribute">Ruby</span>: <span class="string">2.1.2p95</span>
+<span class="attribute">redis</span>: <span class="string">2.8.19</span>
+<span class="attribute">mysql</span>: <span class="string">5.6.25</span>
+<span class="attribute">git</span>: <span class="string">2.1.3</span>
+<span class="attribute">nginx</span>: <span class="string">1.8.0</span>
+</code></pre><p></p><h6 id="13">升级linux系统版本和安装wget</h6><br>升级所有包, 改变软件设置和系统设置,系统版本内核都升级；wget是很常用的linux系统下载工具, 方便之后下载需要用到的包。<p></p>
+<blockquote>
+<p>$ sudo yum -y update<br>$ sudo yum -y install wget</p>
+</blockquote>
+<p></p><h6 id="14">增加EPEL安装源</h6><br>EPEL, 即Extra Packages for Enterprise Linux, 是对标准yum安装源的很好补充, 里边包含了很多常用的软件。<br>下载并安装GPG key<p></p>
+<blockquote>
+<p>$ sudo wget -O /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6 <a href="https://www.fedoraproject.org/static/0608B895.txt" target="_blank" rel="external">https://www.fedoraproject.org/static/0608B895.txt</a><br>$ sudo rpm —import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6</p>
+</blockquote>
+<p>检验是否安装成功</p>
+<blockquote>
+<p>$ sudo rpm -qa gpg*</p>
+</blockquote>
+<p>安装epel-release-6-8.noarch包</p>
+<blockquote>
+<p>$ sudo rpm -Uvh <a href="http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm" target="_blank" rel="external">http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm</a></p>
+</blockquote>
+<p></p><h6 id="15">配置EPEL源</h6><br>创建文件/etc/yum.repos.d/PUIAS_6_computational.repo, 然后写入以下内容:<p></p>
+<pre><code class="[PUIAS_6_computational]">name=PUIAS computational Base $releasever - $basearch&#10;mirrorlist=http://puias.math.ias.edu/data/puias/computational/$releasever/$basearch/mirrorlist&#10;#baseurl=http://puias.math.ias.edu/data/puias/computational/$releasever/$basearch&#10;gpgcheck=1&#10;gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puias
+</code></pre>
+<p></p><h6 id="16">下载并安装GPG key</h6><p></p>
+<blockquote>
+<p>$ sudo wget -O /etc/pki/rpm-gpg/RPM-GPG-KEY-puias <a href="http://springdale.math.ias.edu/data/puias/6/x86_64/os/RPM-GPG-KEY-puias" target="_blank" rel="external">http://springdale.math.ias.edu/data/puias/6/x86_64/os/RPM-GPG-KEY-puias</a><br>$ sudo rpm —import /etc/pki/rpm-gpg/RPM-GPG-KEY-puias</p>
+</blockquote>
+<p>检验成功没有<br>出现类似的打印既安装成功<br>gpg-pubkey-352c64e5-52ae6884</p>
+<p>安装配置完后, 可以敲入命令检测一下:</p>
+<blockquote>
+<p>$ sudo yum repolist</p>
+</blockquote>
+<p></p><h6 id="17">安装GitLab的所需依赖包和工具</h6><p></p>
+<blockquote>
+<p>$ su -<br>$ yum -y groupinstall ‘Development Tools’<br>$ yum -y install vim-enhanced readline readline-devel ncurses-devel gdbm-devel glibc-devel tcl-devel openssl-devel curl-devel expat-devel db4-devel byacc sqlite-devel gcc-c++ libyaml libyaml-devel libffi libffi-devel libxml2 libxml2-devel libxslt libxslt-devel libicu libicu-devel system-config-firewall-tui python-devel redis sudo wget crontabs logwatch logrotate perl-Time-HiRes git</p>
+</blockquote>
+<p>如果安装过程中出现不能安装的情况, 那么增加rhel6的安装源, 再试试。</p>
+<blockquote>
+<p>$ yum-config-manager —enable rhel-6-server-optional-rpms</p>
+</blockquote>
+<p></p><h6 id="18">配置redis</h6><p></p>
+<blockquote>
+<p>$ sudo chkconfig redis on # 加入开机自启动redis的设置<br>$ sudo service redis start # 启动redis, 默认端口6379</p>
+</blockquote>
+<p>配置邮件服务器<br>这里暂时略过了, 没有弄。</p>
+<p></p><h5 id="2">安装Ruby</h5><p></p>
+<blockquote>
+<p>$ su -<br>$ mkdir /tmp/ruby &amp;&amp; cd /tmp/ruby<br>$ curl —progress ftp://ftp.ruby-lang.org/pub/ruby/2.1/ruby-2.1.2.tar.gz | tar xz<br>$ cd ruby-2.0.0-p353<br>$ ./configure —prefix=/usr/local/<br>$ make &amp;&amp; make install</p>
+</blockquote>
+<p>确认安装是否成功</p>
+<blockquote>
+<p>$ which<br>/usr/local/bin/ruby<br>$ ruby -v<br>ruby 2.1.2p95 (2014-05-08 revision 45877) [x86_64-linux]</p>
+</blockquote>
+<p>安装bundle</p>
+<blockquote>
+<p>$ sudo gem install bundler —no-ri —no-rdoc<br>如果提示sudo: gem: command not found, 切换到root账户下执行。</p>
+</blockquote>
+<p></p><h5 id="3">创建git用户来运行gitlab服务</h5><p></p>
+<blockquote>
+<p>$ su -<br>$ adduser —system —shell /bin/bash —comment ‘GitLab’ —create-home —home-dir /home/git/ git<br>Tip:省略密码</p>
+</blockquote>
+<p></p><h5 id="4">配置gitlab-shell</h5><br>GitLab shell是专门为GitLab开发的提供ssh访问和版本管理的软件。<p></p>
+<blockquote>
+<p>$ su - git  # 因为git用户没有密码, 所以这里要先切到root, 然后切换到git用户</p>
+</blockquote>
+<p>clone gitlab-shell的源码</p>
+<blockquote>
+<p>$ git clone <a href="https://github.com/gitlabhq/gitlab-shell.git" target="_blank" rel="external">https://github.com/gitlabhq/gitlab-shell.git</a><br>$ cd gitlab-shell</p>
+</blockquote>
+<p>切换到v2.2.0版本</p>
+<blockquote>
+<p>$ git checkout v2.2.0</p>
+</blockquote>
+<p>然后根据自己的需求修改配置</p>
+<blockquote>
+<p>$ cp config.yml.example config.yml</p>
+</blockquote>
+<p>将 gitlab_url: “<a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a>“ 修改成自己的域名或者地址, 如 <a href="http://test.gitlab.net" target="_blank" rel="external">http://test.gitlab.net</a><br>Tip: 另外如果使用的域名是测试域名, 不要忘记在系统的/etc/hosts做域名映射。</p>
+<p>执行脚本安装其他一些必备的配置或者目录</p>
+<blockquote>
+<p>$ ./bin/install</p>
+</blockquote>
+<p></p><h5 id="5">安装mysql数据库</h5><p></p>
+<p></p><h6 id="51">安装mysql并设置开机启动</h6><p></p>
+<blockquote>
+<p>$ su -<br>$ yum install -y mysql-server mysql-devel<br>$ chkconfig mysqld on<br>$ service mysqld start<br>设置mysql root账户的密码:<br>$ /usr/bin/mysql_secure_installation</p>
+</blockquote>
+<p></p><h6 id="52">创建新用户和数据库给gitlab使用</h6><p></p>
+<blockquote>
+<p>$ mysql -u root -p<br># 输入root密码</p>
+</blockquote>
+<p># 为gitlab创建使用用户</p>
+<pre><code><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">'gitlab'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'gitlab账号的密码'</span>;</span>
+</code></pre><p># 创建gitlaba使用的数据库</p>
+<pre><code><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> <span class="string">`gitlabhq_production`</span> <span class="keyword">DEFAULT</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> <span class="string">`utf8`</span> <span class="keyword">COLLATE</span> <span class="string">`utf8_unicode_ci`</span>;</span>
+</code></pre><p># 给予gitlab用户权限</p>
+<pre><code><span class="operator"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span>, <span class="keyword">LOCK</span> <span class="keyword">TABLES</span>, <span class="keyword">INSERT</span>, <span class="keyword">UPDATE</span>, <span class="keyword">DELETE</span>, <span class="keyword">CREATE</span>, <span class="keyword">DROP</span>, <span class="keyword">INDEX</span>, <span class="keyword">ALTER</span> <span class="keyword">ON</span> <span class="string">`gitlabhq_production`</span>.* <span class="keyword">TO</span> <span class="string">'gitlab'</span>@<span class="string">'localhost'</span>;</span>
+</code></pre><p># 登出数据库</p>
+<pre><code><span class="string">\q</span>
+</code></pre><p></p><h5 id="6">安装配置Gitlab</h5><p></p>
+<p></p><h6 id="61">安装</h6><p></p>
+<blockquote>
+<p>$ su - git  # 因为git用户没有密码, 所以这里要先切到root, 然后切换到git用户</p>
+</blockquote>
+<p>克隆GitLab并切换分支到7-4-stable</p>
+<blockquote>
+<p>$ git clone <a href="https://github.com/gitlabhq/gitlabhq.git" target="_blank" rel="external">https://github.com/gitlabhq/gitlabhq.git</a> gitlab<br>$ cd /home/git/gitlab<br>$ git checkout 7-4-stable</p>
+</blockquote>
+<p>根据自己的实际情况配置<br># 复制配置文件</p>
+<blockquote>
+<p>$ cp config/gitlab.yml.example config/gitlab.yml</p>
+</blockquote>
+<p># 修改配置文件中的访问域名（your_domain_name为项目的访问域名）</p>
+<blockquote>
+<p>$ sed -i ‘s|localhost|your_domain_name|g’ config/gitlab.yml</p>
+</blockquote>
+<p># 设定log和tmp目录所有者和权限</p>
+<blockquote>
+<p>$ chown -R git log/<br>$ chown -R git tmp/<br>$ chmod -R u+rwX log/<br>$ chmod -R u+rwX tmp/</p>
+</blockquote>
+<p># 创建gitlab-satellites目录</p>
+<blockquote>
+<p>$ mkdir /home/git/gitlab-satellites</p>
+</blockquote>
+<p># 创建tmp/pids/和tmp/sockets/目录, 确保gitlab有相应的权限</p>
+<blockquote>
+<p>$ mkdir tmp/pids/<br>$ mkdir tmp/sockets/<br>$ chmod -R u+rwX tmp/pids/<br>$ chmod -R u+rwX tmp/sockets/</p>
+</blockquote>
+<p># 创建public/uploads目录</p>
+<blockquote>
+<p>$ mkdir public/uploads<br>$ chmod -R u+rwX public/uploads</p>
+</blockquote>
+<p># 复制unicorn配置</p>
+<blockquote>
+<p>$ cp config/unicorn.rb.example config/unicorn.rb</p>
+</blockquote>
+<p># 编辑unicorn配置（笔者这里采用默认配置）</p>
+<blockquote>
+<p>$ vim config/unicorn.rb</p>
+</blockquote>
+<p># 配置git的用户和邮件</p>
+<blockquote>
+<p>$ git config —global user.name “GitLab”<br>$ git config —global user.email “gitlab@your_domain_name”<br>$ git config —global core.autocrlf input</p>
+</blockquote>
+<p># 配置数据库访问文件, 修改其中username和password就可以了, 其中密码就是上面数据库步骤中创建gitlab用户的密码。</p>
+<blockquote>
+<p>$ cp config/database.yml.mysql config/database.yml</p>
+</blockquote>
+<pre><code><span class="comment">#</span>
+<span class="comment"># PRODUCTION</span>
+<span class="comment">#</span>
+production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: <span class="keyword">false</span>
+  database: gitlabhq_production
+  pool: <span class="number">10</span>
+  username: gitlab
+  <span class="literal">password</span>: <span class="string">"gitlab"</span>
+  <span class="comment"># host: localhost</span>
+  <span class="comment"># socket: /tmp/mysql.sock</span>
+</code></pre><p>确保该文件只有git账号有权限读取。</p>
+<blockquote>
+<p>$ chmod o-rwx config/database.yml</p>
+</blockquote>
+<p>Tip:配置的时候需要仔细一点, 很可能因为一点小问题导致gitlab项目运行失败, 又得回头来折腾。</p>
+<p></p><h6 id="62">安装Gems</h6><p></p>
+<blockquote>
+<p>$ su -<br>$ gem install charlock_holmes —version ‘0.6.9.4’<br>$ exit</p>
+</blockquote>
+<p></p><h6 id="63">安装mysql依赖包</h6><p></p>
+<blockquote>
+<p>$ cd /home/git/gitlab/<br>$ bundle install —deployment —without development test postgres puma aws</p>
+</blockquote>
+<p>Tip1: gem install和bundle install这两步安装的时候很坑爹, 因为安装的源都是国外的, 所以有时候会因为网络的原因导致整个安装过程频频失败, 因为这两步耗费了大量的精力。后来等公司人少了之后, 安装就很顺利了。so建议找个人少网好的地方执行这两步骤。<br>Tip2: 如果安装过程中出现长时间没有反应的时候, 可以尝试将GemFile里边source: <a href="http://rubygems.org" target="_blank" rel="external">http://rubygems.org</a> 替换成 source: “<a href="https://ruby.taobao.org" target="_blank" rel="external">https://ruby.taobao.org</a>“,  然后再尝试。</p>
+<p></p><h6 id="64">初始化数据</h6><p></p>
+<blockquote>
+<p>$ cd /home/git/gitlab<br>$ bundle exec rake gitlab:setup RAILS_ENV=production<br>完成之后会生成一个默认的管理员账号:</p>
+<pre><code>admin@local<span class="class">.host</span>
+<span class="number">5</span>iveL!fe
+</code></pre></blockquote>
+<p></p><h6 id="65">安装gitlab服务启动脚本</h6><p></p>
+<blockquote>
+<p>$ su -<br>$ wget -O /etc/init.d/gitlab <a href="https://raw.github.com/gitlabhq/gitlab-recipes/master/init/sysvinit/centos/gitlab-unicorn" target="_blank" rel="external">https://raw.github.com/gitlabhq/gitlab-recipes/master/init/sysvinit/centos/gitlab-unicorn</a><br>$ chmod +x /etc/init.d/gitlab<br>设置开机自启动<br>$ chkconfig —add gitlab<br>$ chkconfig gitlab on</p>
+</blockquote>
+<p>检测应用程序状态</p>
+<blockquote>
+<p>$ su - git<br>$ cd gitlab/<br>$ bundle exec rake gitlab:env:info RAILS_ENV=production<br>Tip: 这里可以查看系统、Ruby、GitLab和GitLab Shell的版本和其他信息</p>
+</blockquote>
+<p>启动Gitlab</p>
+<blockquote>
+<p>$ service gitlab start</p>
+</blockquote>
+<p>查看应用更加详细的信息</p>
+<blockquote>
+<p>$ su - git<br>$ cd gitlab/<br>$ bundle exec rake gitlab:check RAILS_ENV=production<br>Tip: 这里可以看到一些检测的日志, 如果中间出现了红色的报错信息, 那就挨个解决。其中Init script up-to-date整个错误, 官方文档上提示可以忽略。</p>
+</blockquote>
+<p></p><h5 id="7">安装web服务器</h5><br>选择Nginx,版本1.8.0<p></p>
+<blockquote>
+<p>$ su -<br>$ yum -y install nginx<br>加入开机启动项<br>$ chkconfig nginx on</p>
+</blockquote>
+<p>将gitlab的web服务配置文件拷入/etc/nginx/conf.d目录下</p>
+<blockquote>
+<p>$ cd /home/git/gitlab<br>$ cp lib/support/nginx/gitlab /etc/nginx/conf.d/gitlab</p>
+</blockquote>
+<p>根据实际情况修改配置,servre_name修改成自己的域名或者ip地址, 然后清除无用的web配置表</p>
+<blockquote>
+<p>$ cd /etc/nginx/conf.d<br>$ mv default.conf default.conf.bak</p>
+</blockquote>
+<p>将nginx加入git用户组,确保nginx有访问gitlab目录的权限,避免出现403错误</p>
+<blockquote>
+<p>$ usermod -a -G git nginx<br>$ chmod g+rx /home/git/</p>
+</blockquote>
+<p>重新启动nginx</p>
+<blockquote>
+<p>$ sudo service nginx restart</p>
+</blockquote>
+<p></p><h5 id="8">配置防火墙</h5><br>如果nginx配置里gitlab的端口不是默认的80端口, 需要把端口加入到防火的配置里, 避免出现无法连通的情况。然后重启防火墙。<p></p>
+<p>当所有的步骤都顺利完成之后, 恭喜你也能拥有自己的gitlab了。访问地址就是gitlab.conf里配置的地址, 打开之后就能看到如此页面了。可以输入之前生成的管理员账号进入系统。</p>
+<p></p><h5 id="9">问题摘录</h5><br>在这里把我在这整个过程中遇到的问题记录一下, 希望能给到大家一点帮助。<p></p>
+<ol>
+<li><p>bundle install的时候出现<code>Could not find addressable-2.3.2 in any of the sources
+Run</code>bundle install<code>to install missing gems.</code>类似的问题, 但去相应目录下查看却发现这个库是存在的, 并且安装提示出现了time out这样的提示, 那就是网络的原因导致了安装过程失败。<br>解决办法: 找个网速好的地方或者等公司用网的时候少了再试试。</p>
+</li>
+<li><p>访问页面的时候出现302错误, 查看/home/git/gitlab/log/unicorn.stderr.log日志的时候发现有31 &gt; 30秒这一行, 访问请求超时。分析其原因, 可能是因为访问页面的时候要加载大量的资源, 但是服务器尚未生成这些页面的资源, 所以需要执行下面的命令编译生成需要的资源文件。<br>解决办法: </p>
+<blockquote>
+<p>$ cd /home/git/gitlab<br>$ bundle exec rake assets:precompile RAILS_ENV=production</p>
+</blockquote>
+</li>
+<li><p>gitlab是使用http或者https访问, nginx的配置和上述好几个文件里对应的ssl项的配置都是不一样的, https比http的配置更加复杂。当时第一次安装的时候, 从网上down下来的gitlab nginx配置的时候错误地down到了https的配置, 结果运行起来出现了许多验证失败导致push失败等相关的问题, 所以如果不是刚性需求, 这里还是建议选择http的访问方式。<br>解决办法: 选择简便配置的http访问方式。</p>
+</li>
+<li><p>运行gitlab-shell bin目录下check脚本可以有效地发现一些ssh验证权限可能存在的问题, 所以这一步很有必要。</p>
+</li>
+</ol>
+<h4>以上仅是个人使用经验，不一定代表正确思路，仅供参考。</h4>
+
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/git/">
+                #git
+              </a>
+            
+          </div>
+        
+
+        
+          <div class="post-nav">
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2015/04/18/妈，我在外边挺好的/">妈，我在外边挺好的</a>
+              
+            </div>
+          </div>
+        
+
+        
+        
+      </div>
+    
+  </div>
+
+
+
+  
+    <div class="comments" id="comments">
+      
+        <div class="ds-thread" data-thread-key="2015/06/12/在centos7上搭建gitlab的正确姿势/"
+             data-title="在centos7上搭建gitlab的正确姿势" data-url="http://jiankg.github.io/2015/06/12/在centos7上搭建gitlab的正确姿势/">
+        </div>
+
+      
+    </div>
+  
+
+          </div>
+
+          
+        </div>
+
+        
+<div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+
+<div id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+    
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview" data-target="site-overview">
+          站点概览
+        </li>
+      </ul>
+    
+
+    <div class="site-overview">
+      <div class="site-author motion-element">
+        <img class="site-author-image" src="/images/default_avatar.jpg" alt="jiank" />
+        <p class="site-author-name">jiank</p>
+      </div>
+      <p class="site-description motion-element">Yes， we code.</p>
+      <div class="site-state motion-element">
+        <div class="site-state-item site-state-posts">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </div>
+        <div class="site-state-item site-state-tags">
+            <span class="site-state-item-count">6</span>
+            <span class="site-state-item-name">标签</span>
+        </div>
+        <div class="site-state-item site-state-pages">
+            <span class="site-state-item-count">5</span>
+            <span class="site-state-item-name">页面</span>
+        </div>
+      </div>
+
+      
+
+      <div class="links-of-author motion-element">
+        
+      </div>
+
+      
+      
+
+    </div>
+
+    
+      <div class="post-toc-wrap sidebar-panel-active">
+        <div class="post-toc-indicator-top post-toc-indicator"></div>
+        <div class="post-toc">
+          
+          
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1"><span class="nav-number">1.</span> <span class="nav-text">系统工具安装设置</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#11"><span class="nav-number">1.1.</span> <span class="nav-text">论官方文档的重要性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#12"><span class="nav-number">1.2.</span> <span class="nav-text">说一下服务器上的环境和需要用到的依赖</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#13"><span class="nav-number">1.3.</span> <span class="nav-text">升级linux系统版本和安装wget</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#14"><span class="nav-number">1.4.</span> <span class="nav-text">增加EPEL安装源</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#15"><span class="nav-number">1.5.</span> <span class="nav-text">配置EPEL源</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#16"><span class="nav-number">1.6.</span> <span class="nav-text">下载并安装GPG key</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#17"><span class="nav-number">1.7.</span> <span class="nav-text">安装GitLab的所需依赖包和工具</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#18"><span class="nav-number">1.8.</span> <span class="nav-text">配置redis</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2"><span class="nav-number">2.</span> <span class="nav-text">安装Ruby</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3"><span class="nav-number">3.</span> <span class="nav-text">创建git用户来运行gitlab服务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4"><span class="nav-number">4.</span> <span class="nav-text">配置gitlab-shell</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5"><span class="nav-number">5.</span> <span class="nav-text">安装mysql数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#51"><span class="nav-number">5.1.</span> <span class="nav-text">安装mysql并设置开机启动</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#52"><span class="nav-number">5.2.</span> <span class="nav-text">创建新用户和数据库给gitlab使用</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6"><span class="nav-number">6.</span> <span class="nav-text">安装配置Gitlab</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#61"><span class="nav-number">6.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#62"><span class="nav-number">6.2.</span> <span class="nav-text">安装Gems</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#63"><span class="nav-number">6.3.</span> <span class="nav-text">安装mysql依赖包</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#64"><span class="nav-number">6.4.</span> <span class="nav-text">初始化数据</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#65"><span class="nav-number">6.5.</span> <span class="nav-text">安装gitlab服务启动脚本</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7"><span class="nav-number">7.</span> <span class="nav-text">安装web服务器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8"><span class="nav-number">8.</span> <span class="nav-text">配置防火墙</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9"><span class="nav-number">9.</span> <span class="nav-text">问题摘录</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">以上仅是个人使用经验，不一定代表正确思路，仅供参考。</span></a></div>
+          
+        </div>
+        <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+      </div>
+    
+
+  </div>
+</div>
+
+
+      </div>
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2015
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">jiank</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".fancybox").fancybox();
+    });
+  </script>
+
+  <script type="text/javascript">
+  function hasMobileUA () {
+    var nav = window.navigator;
+    var ua = nav.userAgent;
+    var pa = /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g;
+
+    return pa.test(ua);
+  }
+
+  function isDesktop () {
+    return screen.width > 991 && !hasMobileUA();
+  }
+
+  function isTablet () {
+    return screen.width < 992 && screen.width > 767 && hasMobileUA();
+  }
+
+  function isMobile () {
+    return screen.width < 767 && hasMobileUA();
+  }
+
+  function escapeSelector (selector) {
+    return selector.replace(/[!"$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "\\$&")
+  }
+</script>
+
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" id="motion.global">
+  $(document).ready(function () {
+    var body = $('body');
+    var isSidebarVisible = false;
+    var sidebarToggle = $('.sidebar-toggle');
+    var sidebarToggleLine1st = $('.sidebar-toggle-line-first')
+    var sidebarToggleLine2nd = $('.sidebar-toggle-line-middle');
+    var sidebarToggleLine3rd = $('.sidebar-toggle-line-last');
+    var sidebar = $('.sidebar');
+
+    var SIDEBAR_WIDTH = '320px';
+    var SIDEBAR_DISPLAY_DURATION = 300;
+
+    var sidebarToogleLineStatusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
+
+    var sidebarToggleLine1stStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
+    var sidebarToogleLine1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
+
+    var sidebarToggleLine2ndStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine2ndStatusArrow = {width: '90%'};
+    var sidebarToogleLine2ndStatusClose = {opacity: 0};
+
+    var sidebarToggleLine3rdStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
+    var sidebarToogleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
+
+    LogoAndMenuMotion();
+    sidebatToggleMotion();
+    postsListMotion();
+    backToTopMotion();
+
+
+    $(document)
+      .on('sidebar.isShowing', function () {
+        isDesktop() && body.velocity(
+          {paddingRight: SIDEBAR_WIDTH},
+          SIDEBAR_DISPLAY_DURATION
+        );
+        sidebarContentMotion();
+      })
+      .on('sidebar.isHiding', function () {});
+
+    function LogoAndMenuMotion() {
+      $.Velocity.RunSequence([
+        { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
+        { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
+        
+        { e: $('.logo-line-before i'), p: { translateX: "100%" }, o: { duration: 500, sequenceQueue: false } },
+        { e: $('.logo-line-after i'), p: { translateX: "-100%" }, o: { duration: 500, sequenceQueue: false } },
+        
+        { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200 } }
+      ]);
+      $('.menu-item').velocity('transition.slideDownIn', {display: null});
+    }
+
+
+    function backToTopMotion () {
+      var b2top = $('.back-to-top');
+      b2top.on('click', function () {
+        body.velocity('scroll');
+      });
+    }
+
+    function sidebarShowMotion () {
+
+      sidebarToggleLine1st.velocity(sidebarToogleLine1stStatusClose);
+      sidebarToggleLine2nd.velocity(sidebarToogleLine2ndStatusClose);
+      sidebarToggleLine3rd.velocity(sidebarToogleLine3rdStatusClose);
+
+      sidebar.velocity({width: SIDEBAR_WIDTH}, {
+        display: 'block',
+        duration: SIDEBAR_DISPLAY_DURATION,
+        complete: function () {
+          sidebar.addClass('sidebar-active');
+          sidebar.trigger('sidebar.didShow');
+        }
+      });
+      sidebar.trigger('sidebar.isShowing');
+    }
+
+    function sidebarHideMotion () {
+      isDesktop() && body.velocity({paddingRight: 0});
+      sidebar.velocity('reverse');
+
+      sidebarToggleLine1st.velocity(sidebarToggleLine1stStatusInit);
+      sidebarToggleLine2nd.velocity(sidebarToggleLine2ndStatusInit);
+      sidebarToggleLine3rd.velocity(sidebarToggleLine3rdStatusInit);
+
+      sidebar.removeClass('sidebar-active');
+      sidebar.trigger('sidebar.isHiding');
+    };
+
+    function sidebarContentMotion () {
+      $('.sidebar .motion-element').velocity(
+        'transition.slideRightIn',
+        {stagger: 50, drag: true}
+      );
+    }
+
+    function postsListMotion () {
+      var postMotionOptions = window.postMotionOptions || {stagger: 300, drag: true};
+      $('.post').velocity('transition.slideDownIn', postMotionOptions);
+    }
+
+    function sidebatToggleMotion () {
+      sidebarToggle.on('click', function () {
+        isSidebarVisible ? sidebarHideMotion() : sidebarShowMotion();
+        isSidebarVisible = !isSidebarVisible;
+      });
+
+      sidebarToggle.hover(function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusArrow);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusArrow);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusArrow);
+      }, function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusInit);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusInit);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusInit);
+      });
+    }
+  });
+
+</script>
+
+
+
+
+
+  
+  
+<script type="text/javascript" id="bootstrap.scrollspy.custom">
+  /* ========================================================================
+  * Bootstrap: scrollspy.js v3.3.2
+  * http://getbootstrap.com/javascript/#scrollspy
+  * ========================================================================
+  * Copyright 2011-2015 Twitter, Inc.
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  * ======================================================================== */
+
+  /**
+   * Custom by iissnan
+   *
+   * - Add a `clear.bs.scrollspy` event.
+   * - Esacpe targets selector.
+   */
+
+
+  +function ($) {
+    'use strict';
+
+    // SCROLLSPY CLASS DEFINITION
+    // ==========================
+
+    function ScrollSpy(element, options) {
+      this.$body          = $(document.body)
+      this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)
+      this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
+      this.selector       = (this.options.target || '') + ' .nav li > a'
+      this.offsets        = []
+      this.targets        = []
+      this.activeTarget   = null
+      this.scrollHeight   = 0
+
+      this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))
+      this.refresh()
+      this.process()
+    }
+
+    ScrollSpy.VERSION  = '3.3.2'
+
+    ScrollSpy.DEFAULTS = {
+      offset: 10
+    }
+
+    ScrollSpy.prototype.getScrollHeight = function () {
+      return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
+    }
+
+    ScrollSpy.prototype.refresh = function () {
+      var that          = this
+      var offsetMethod  = 'offset'
+      var offsetBase    = 0
+
+      this.offsets      = []
+      this.targets      = []
+      this.scrollHeight = this.getScrollHeight()
+
+      if (!$.isWindow(this.$scrollElement[0])) {
+        offsetMethod = 'position'
+        offsetBase   = this.$scrollElement.scrollTop()
+      }
+
+      this.$body
+        .find(this.selector)
+        .map(function () {
+          var $el   = $(this)
+          var href  = $el.data('target') || $el.attr('href')
+          var $href = /^#./.test(href) && $(escapeSelector(href)) // Need to escape selector.
+
+          return ($href
+            && $href.length
+            && $href.is(':visible')
+            && [[$href[offsetMethod]().top + offsetBase, href]]) || null
+        })
+        .sort(function (a, b) { return a[0] - b[0] })
+        .each(function () {
+          that.offsets.push(this[0])
+          that.targets.push(this[1])
+        })
+
+
+    }
+
+    ScrollSpy.prototype.process = function () {
+      var scrollTop    = this.$scrollElement.scrollTop() + this.options.offset
+      var scrollHeight = this.getScrollHeight()
+      var maxScroll    = this.options.offset + scrollHeight - this.$scrollElement.height()
+      var offsets      = this.offsets
+      var targets      = this.targets
+      var activeTarget = this.activeTarget
+      var i
+
+      if (this.scrollHeight != scrollHeight) {
+        this.refresh()
+      }
+
+      if (scrollTop >= maxScroll) {
+        return activeTarget != (i = targets[targets.length - 1]) && this.activate(i)
+      }
+
+      if (activeTarget && scrollTop < offsets[0]) {
+        $(this.selector).trigger('clear.bs.scrollspy')  // Add a custom event.
+        this.activeTarget = null
+        return this.clear()
+      }
+
+      for (i = offsets.length; i--;) {
+        activeTarget != targets[i]
+          && scrollTop >= offsets[i]
+          && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
+          && this.activate(targets[i])
+      }
+    }
+
+    ScrollSpy.prototype.activate = function (target) {
+      this.activeTarget = target
+
+      this.clear()
+
+      var selector = this.selector +
+        '[data-target="' + target + '"],' +
+        this.selector + '[href="' + target + '"]'
+
+      var active = $(selector)
+        .parents('li')
+        .addClass('active')
+
+      if (active.parent('.dropdown-menu').length) {
+        active = active
+          .closest('li.dropdown')
+          .addClass('active')
+      }
+
+      active.trigger('activate.bs.scrollspy')
+    }
+
+    ScrollSpy.prototype.clear = function () {
+      $(this.selector)
+        .parentsUntil(this.options.target, '.active')
+        .removeClass('active')
+    }
+
+
+    // SCROLLSPY PLUGIN DEFINITION
+    // ===========================
+
+    function Plugin(option) {
+      return this.each(function () {
+        var $this   = $(this)
+        var data    = $this.data('bs.scrollspy')
+        var options = typeof option == 'object' && option
+
+        if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
+        if (typeof option == 'string') data[option]()
+      })
+    }
+
+    var old = $.fn.scrollspy
+
+    $.fn.scrollspy             = Plugin
+    $.fn.scrollspy.Constructor = ScrollSpy
+
+
+    // SCROLLSPY NO CONFLICT
+    // =====================
+
+    $.fn.scrollspy.noConflict = function () {
+      $.fn.scrollspy = old
+      return this
+    }
+
+
+    // SCROLLSPY DATA-API
+    // ==================
+
+    $(window).on('load.bs.scrollspy.data-api', function () {
+      $('[data-spy="scroll"]').each(function () {
+        var $spy = $(this)
+        Plugin.call($spy, $spy.data())
+      })
+    })
+
+  }(jQuery);
+</script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0 && isDesktop()) {
+        setTimeout(function () {
+          $('.sidebar-toggle').trigger('click');
+        }, 800);
+      }
+    });
+  </script>
+
+
+
+
+  
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jiank"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+  
+</body>
+</html>
